@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Backbone.js • TodoMVC</title>
+		<!-- stylesheet for the whole todoNVC page -->
 		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
 	</head>
 	<body>
@@ -23,6 +24,8 @@
 			<p>Written by <a href="https://github.com/addyosmani">Addy Osmani</a></p>
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
+		<!-- a script tag which is not a JS file but the tpe says text/template which represents
+		snippets of HTML that our JS can use to display things in our app -->
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
@@ -31,6 +34,8 @@
 			</div>
 			<input class="edit" value="<%- title %>">
 		</script>
+		<!-- a script tag which is not a JS file but the tpe says text/template which represents
+		snippets of HTML that our JS can use to display things in our app -->
 		<script type="text/template" id="stats-template">
 			<span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
 			<ul id="filters">
@@ -48,16 +53,36 @@
 			<button id="clear-completed">Clear completed (<%= completed %>)</button>
 			<% } %>
 		</script>
+		<!-- Bower a package manager for all the libraries to e used web bower.io -->
+		<!-- bower first library Backbone and backbone for local storage, JjQuery, todomvc-common and underscore -->
+		<!-- toomvc-common has resources for todomvc which is base.css, base.js and a backgound image -->
+		<!-- base.css is the only stylesheet used for the whole of todomvc project -->
 		<script src="bower_components/todomvc-common/base.js"></script>
+		<!-- jQuery is the DOM manipulation library, fo AJX calls to servers and some good utilities -->
 		<script src="bower_components/jquery/jquery.js"></script>
+		<!-- underscore give a bunch of utility functions which makes it easier to write JS
+		and it provides functional programming -->
 		<script src="bower_components/underscore/underscore.js"></script>
+		<!-- backbone is 'organisational library' backbonejs.org
+			 Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.
+			so thisis Model View and Whatever Models are data, collections are collectons of models
+			Arays, observables and now collectons of models -->
 		<script src="bower_components/backbone/backbone.js"></script>
+		<!-- plugin for backbone for localstorage -->
 		<script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+		<!-- Order of these files are important because App.js gives all of the othersa chance to get
+		set up before the app actually gets kicked off  when the line 86 app.js loads-->
+		<!-- model for todo -->
 		<script src="js/models/todo.js"></script>
+		<!-- collections todos is doing the work of collections which were observablesArrays in Knockout.js  -->
 		<script src="js/collections/todos.js"></script>
+		<!-- todo-view idappliction for each todo item -->
 		<script src="js/views/todo-view.js"></script>
+		<!-- app-view.js is view for entire application -->
 		<script src="js/views/app-view.js"></script>
+		<!-- Routers are just views but for URLs instead of page itself -->
 		<script src="js/routers/router.js"></script>
+		<!--Main App  -->
 		<script src="js/app.js"></script>
 	</body>
 </html>

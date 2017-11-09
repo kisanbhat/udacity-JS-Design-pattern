@@ -1,6 +1,10 @@
 /*global Backbone */
+// the next line means if app exists don't do anything
+// if app does not exist set app equal to  new empty object {}
 var app = app || {};
-
+//below is the modular pattern stating with an IIFE function does not have a name is an
+//annoymous function which means any variables we decalre inside 
+//the function don't pollute the global scope
 (function () {
 	'use strict';
 
@@ -22,5 +26,6 @@ var app = app || {};
 				completed: !this.get('completed')
 			});
 		}
-	});
+	}); //end of Backbone.Model.extend
 })();
+// (function () {})() () we run the function immediatly
